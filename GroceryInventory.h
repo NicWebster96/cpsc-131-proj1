@@ -13,17 +13,58 @@ private:
     float _taxRate;
 
 public:
-    GroceryInventory();
+    GroceryInventory(){
+	_inventory = {};
+	_taxRate = 0.0;
+    }
 
-    GroceryItem& getEntry(const string&);
-    void addEntry(const string&, const int&, const float&, const bool&);
-    float getTaxRate() const;
-    void setTaxRate(const float&);
+    GroceryItem& getEntry(const string& _grocItem){
+	for ( int i = 0; i < _inventory.size(); i++){
+		if (_inventory.at(i).getName() != _grocItem)
+			throw std::range_error("Item name does not match inventory");
+		else 
+			return _inventory;
+	}
+    }		
+
+    void addEntry(const string& entry_name, const int& entry_quantity, const float& entry_price, const bool& entry_tax){
+	GroceryItem groc_entry(entry_name,entry_quantity,entry_price,entry_tax);
+	_inventory.push_back(groc_entry);
+    }
+
+    float getTaxRate() const{
+	return _taxRate;
+    }
+
+    void setTaxRate(const float& _itemTax){
+	_taxRate = _itemTax;
+    }
 
     void createListFromFile(const string&);
-    float calculateUnitRevenue() const;
-    float calculateTaxRevenue() const;
-    float calculateTotalRevenue() const;
+
+    float calculateUnitRevenue() const{
+	float _unitRevenue = 0.0;
+	for (int = 0; i < _inventory.size(); i++){
+		_unitRevenue += _inventory.at(i).getQuantity() * _inventory.at(i).getUnitPrice();
+   	}
+	return _unitRevenue;
+    }
+
+    float calculateTaxRevenue() const{
+	float _taxRevenue = 0.0;
+	for (int = 0; i < _inventory.size(); i++){
+		if(_inventory.at(i).isTaxable() == true) {
+			_taxRevenue += .01 * _taxRate * _inventory.at(i).getQuantity() * _inventory.at(i).getUnitPrice();    
+		}
+
+	}
+	return _taxRevenue;
+    }
+
+    float calculateTotalRevenue() const{
+	return calculateUnitRevenue() + calculateTaxRevenue();
+
+    }
 
     GroceryItem& operator[](const int&);
 };
