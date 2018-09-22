@@ -44,7 +44,7 @@ public:
 
     float calculateUnitRevenue() const{
 	float _unitRevenue = 0.0;
-	for (int = 0; i < _inventory.size(); i++){
+	for (int i = 0; i < _inventory.size(); i++){
 		_unitRevenue += _inventory.at(i).getQuantity() * _inventory.at(i).getUnitPrice();
    	}
 	return _unitRevenue;
@@ -52,7 +52,7 @@ public:
 
     float calculateTaxRevenue() const{
 	float _taxRevenue = 0.0;
-	for (int = 0; i < _inventory.size(); i++){
+	for (int i = 0; i < _inventory.size(); i++){
 		if(_inventory.at(i).isTaxable() == true) {
 			_taxRevenue += .01 * _taxRate * _inventory.at(i).getQuantity() * _inventory.at(i).getUnitPrice();    
 		}
