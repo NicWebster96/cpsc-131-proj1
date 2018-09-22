@@ -6,4 +6,4 @@ MUST EDIT WITH YOUR OWN NAME AND EMAIL IN THE SAME FORMAT
 Group members:
 
 - Nicholas Webster NicWebster96@csu.fullerton.edu
-- Kenneth calstateken@csu.fullerton.edu
+- Kenneth Aguilar calstateken@csu.fullerton.edu
