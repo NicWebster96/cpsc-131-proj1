@@ -23,7 +23,7 @@ public:
 		if (_inventory.at(i).getName() == _grocItem) 	
 			return _inventory.at(i);
 	}
-	throw invalid_argument("Item name does not match inventory");	
+	throw range_error("Item name does not match inventory");	
     }		
 
     void addEntry(const string& entry_name, const int& entry_quantity, const float& entry_price, const bool& entry_tax){   //adds the entry to inventory
