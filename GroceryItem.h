@@ -11,19 +11,20 @@ private:
     bool _taxable;
 
 public:
-    GroceryItem(){
+    GroceryItem(){    //constructor initializes variables to null
 	_name = "";
 	_quantity = 0;
 	_unitPrice = 0.0;
 	_taxable = false;
     }
-    GroceryItem(const string& _itemName, const int& _itemQuantity, const float& _itemPrice, const bool& _itemTaxable){
+//sets equal to local variables
+    GroceryItem(const string& _itemName, const int& _itemQuantity, const float& _itemPrice, const bool& _itemTaxable){  
 	_name = _itemName;
 	_quantity = _itemQuantity;
 	_unitPrice = _itemPrice;
 	_taxable = _itemTaxable;
     }
-
+//setters and getters
     string getName() const{
 	return _name;
     }
