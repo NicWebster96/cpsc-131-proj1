@@ -23,7 +23,7 @@ public:
 		if (_inventory.at(i).getName() != _grocItem)
 			throw std::range_error("Item name does not match inventory");
 		else 
-			return _inventory;
+			return _inventory.at(i);
 	}
     }		
 
