@@ -23,7 +23,7 @@ public:
 		if (_inventory.at(i).getName() != _grocItem)
 			throw range_error("Item name does not match inventory");
 		else 
-			return _inventory.at(i);
+			return _grocItem;
 	}
     }		
 
