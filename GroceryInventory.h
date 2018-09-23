@@ -20,10 +20,10 @@ public:
 
     GroceryItem& getEntry(const string& _grocItem){
 	for ( int i = 0; i < _inventory.size(); i++){
-		if (_inventory.at(i).getName() != _grocItem) 	
-			throw invalid_argument("Item name does not match inventory");	
+		if (_inventory.at(i).getName() == _grocItem) 	
+			return _inventory.at(i);
 	}
-	return _inventory.at(i);
+	throw invalid_argument("Item name does not match inventory");	
     }		
 
     void addEntry(const string& entry_name, const int& entry_quantity, const float& entry_price, const bool& entry_tax){
