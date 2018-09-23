@@ -21,7 +21,7 @@ public:
     GroceryItem& getEntry(const string& _grocItem){
 	for ( int i = 0; i < _inventory.size(); i++){
 		if (_inventory.at(i).getName() != _grocItem)
-			throw std::range_error("Item name does not match inventory");
+			throw range_error("Item name does not match inventory");
 		else 
 			return _inventory.at(i);
 	}
