@@ -20,10 +20,10 @@ public:
 
     GroceryItem& getEntry(const string& _grocItem){
 	for ( int i = 0; i < _inventory.size(); i++){
-		if (_inventory.at(i).getName() != _grocItem)
-			throw range_error("Item name does not match inventory");
-		else 
+		if (_inventory.at(i).getName() == _grocItem)
 			return _inventory.at(i);
+		else 
+			throw range_error("Item name does not match inventory");		
 	}
     }		
 
