@@ -22,7 +22,7 @@ public:
 	for ( int i = 0; i < _inventory.size(); i++){
 		if (_inventory.at(i).getName() == _grocItem)
 			return _inventory.at(i);
-		else 
+		if (_inventory.at(i).getName() != _grocItem) 
 			throw invalid_argument("Item name does not match inventory");		
 	}
     }		
