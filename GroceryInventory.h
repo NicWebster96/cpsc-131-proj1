@@ -13,12 +13,12 @@ private:
     float _taxRate;
 
 public:
-    GroceryInventory(){
+    GroceryInventory(){              //constructor to initialize variables in private
 	_inventory = {};
 	_taxRate = 0.0;
     }
 
-    GroceryItem& getEntry(const string& _grocItem){
+    GroceryItem& getEntry(const string& _grocItem){        //Gets entry, searches through vector and does error checking
 	for ( int i = 0; i < _inventory.size(); i++){
 		if (_inventory.at(i).getName() == _grocItem) 	
 			return _inventory.at(i);
@@ -26,22 +26,22 @@ public:
 	throw invalid_argument("Item name does not match inventory");	
     }		
 
-    void addEntry(const string& entry_name, const int& entry_quantity, const float& entry_price, const bool& entry_tax){
+    void addEntry(const string& entry_name, const int& entry_quantity, const float& entry_price, const bool& entry_tax){   //adds the entry to inventory
 	GroceryItem groc_entry(entry_name,entry_quantity,entry_price,entry_tax);
 	_inventory.push_back(groc_entry);
     }
 
-    float getTaxRate() const{
+    float getTaxRate() const{      //returns taxrate
 	return _taxRate;
     }
 
-    void setTaxRate(const float& _itemTax){
+    void setTaxRate(const float& _itemTax){   //sets taxrate
 	_taxRate = _itemTax;
     }
 
     void createListFromFile(const string&);
 
-    float calculateUnitRevenue() const{
+    float calculateUnitRevenue() const{           // calculates unit revenue by multiplying amound times price at specific location
 	float _unitRevenue = 0.0;
 	for (int i = 0; i < _inventory.size(); i++){
 		_unitRevenue += _inventory.at(i).getQuantity() * _inventory.at(i).getUnitPrice();
@@ -49,7 +49,7 @@ public:
 	return _unitRevenue;
     }
 
-    float calculateTaxRevenue() const{
+    float calculateTaxRevenue() const{            // calculates tax revenue by multiplying amound times price at specific location
 	float _taxRevenue = 0.0;
 	for (int i = 0; i < _inventory.size(); i++){
 		if(_inventory.at(i).isTaxable() == true) {
@@ -60,7 +60,7 @@ public:
 	return _taxRevenue;
     }
 
-    float calculateTotalRevenue() const{
+    float calculateTotalRevenue() const{           // calculates total revenue 
 	return calculateUnitRevenue() + calculateTaxRevenue();
 
     }
